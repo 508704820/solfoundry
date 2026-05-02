@@ -4,7 +4,7 @@ OpenClaw Bounty Agent — Autonomous Multi-Agent Bounty Hunting System.
 
 Addresses: SolFoundry/solfoundry#861
 
-Architecture: 51 agents across 7 gateways with multi-LLM orchestration.
+Architecture: Multi-agent cluster across multiple gateways with multi-LLM orchestration.
 """
 import os
 import json
@@ -47,7 +47,7 @@ class AutonomousBountyAgent:
         return plans
 
     def implement(self, plan: BountyPlan) -> list:
-        """Phase 3: Implement solution using 51 specialized agents."""
+        """Phase 3: Implement solution using a multi-agent cluster."""
         print(f"🔧 Executing: {plan.bounty_title}")
         status = self.orchestrator.get_team_status()
         print(f"   Team: {status['idle']} idle / {status['total_agents']} total agents")

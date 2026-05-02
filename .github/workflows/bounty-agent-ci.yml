@@ -8,7 +8,7 @@ name: Bounty Agent CI/CD
 
 on:
   push:
-    branches: [main, feat/autonomous-bounty-agent-861, feat/bounty-agent-861-v2]
+    branches: [main, feat/autonomous-bounty-agent-861]
     paths:
       - 'bounty_agent/**'
       - 'main_bounty_agent.py'
@@ -129,7 +129,7 @@ jobs:
           DATABASE_URL: postgresql+asyncpg://bountyagent:test@localhost:5432/bountyagent_test
           REDIS_URL: redis://localhost:6379/0
         run: |
-          pytest tests/ -v \
+          pytest bounty_agent/tests/ tests/ -v \
             --cov=bounty_agent \
             --cov-report=xml:coverage.xml \
             --cov-report=term-missing \
